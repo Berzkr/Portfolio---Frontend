@@ -4,6 +4,7 @@ import com.portfolio.sma.Entity.Persona;
 import com.portfolio.sma.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//cross origin es para aceptar los llamados que le voy a hacer desde la url del frontend
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
     
     @Autowired IPersonaService ipersonaService;
@@ -56,6 +59,15 @@ public class PersonaController {
        
        ipersonaService.savePersona(persona);
        return persona;
+        
+    }
+    
+    //esto lo agrego aca para que cuando llamo perfil desde el frontend me lleve a
+    //la primera persona de la base de datos que soy yo el propietario del portfolio
+    @GetMapping ("/personas/traer/perfil")
+    public Persona findPersona(){
+        
+        return ipersonaService.findPersona(1L);
         
     }
     
