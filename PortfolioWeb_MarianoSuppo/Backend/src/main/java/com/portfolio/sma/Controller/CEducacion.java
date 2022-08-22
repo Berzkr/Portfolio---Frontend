@@ -1,10 +1,9 @@
-
 package com.portfolio.sma.Controller;
 
-import com.portfolio.sma.Dto.DtoExperiencia;
-import com.portfolio.sma.Entity.Experiencia;
+import com.portfolio.sma.Dto.DtoEducacion;
+import com.portfolio.sma.Entity.Educacion;
 import com.portfolio.sma.Security.Controller.Mensaje;
-import com.portfolio.sma.Service.SExperiencia;
+import com.portfolio.sma.Service.SEducacion;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,100 +20,100 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping ("/explab")
+@RequestMapping ("/educacion")
 @CrossOrigin (origins = "http://localhost:4200")
-public class CExperiencia {
+public class CEducacion {
     
     @Autowired
-    SExperiencia sExperiencia;
+    SEducacion sEducacion;
     
     @GetMapping("/lista")
-    public ResponseEntity<List<Experiencia>> list() {
+    public ResponseEntity<List<Educacion>> list() {
         
-        List<Experiencia> list = sExperiencia.list();
+        List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
         
     }
     
     @PostMapping ("/create")
     //el signo ? indica que response entity puede recibir cualquier cosa
-    public ResponseEntity<?> create (@RequestBody DtoExperiencia dtoExp) {
+    public ResponseEntity<?> create (@RequestBody DtoEducacion dtoEdu) {
         //si el campo es blanco salta el error
-        if(StringUtils.isBlank(dtoExp.getNombreE())) {
+        if(StringUtils.isBlank(dtoEdu.getNombreEdu())) {
             
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
             
         }
-        //esta validacion es por si la experiencia que se quiere agregar ya existe salta el error
-        if(sExperiencia.existsByNombreE(dtoExp.getNombreE())) {
+        //esta validacion es por si la educacion que se quiere agregar ya existe salta el error
+        if(sEducacion.existsByNombreEdu(dtoEdu.getNombreEdu())) {
             
-            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Esa educación ya existe"), HttpStatus.BAD_REQUEST);
             
         }
-        Experiencia experiencia = new Experiencia(dtoExp.getNombreE(), dtoExp.getDescripcionE());
-        sExperiencia.save(experiencia);
+        Educacion educacion = new Educacion(dtoEdu.getNombreEdu(), dtoEdu.getDescripcionEdu());
+        sEducacion.save(educacion);
         
-        return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Educación agregada"), HttpStatus.OK);
     
     }
     
     @PutMapping ("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperiencia dtoExp) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoEducacion dtoEdu) {
         //validamos si existe el ID
-        if(!sExperiencia.existsById(id)) {
+        if(!sEducacion.existsById(id)) {
             
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.NOT_FOUND);
             
         }
-        //comparo los nombres de las experiencias que quiero agregar con las que ya existen en la base de datos
-        if(sExperiencia.existsByNombreE(dtoExp.getNombreE()) && sExperiencia.getByNombreE(dtoExp.getNombreE()).get().getId() != id) {
+        //comparo los nombres de las educaciones que quiero agregar con las que ya existen en la base de datos
+        if(sEducacion.existsByNombreEdu(dtoEdu.getNombreEdu()) && sEducacion.getByNombreEdu(dtoEdu.getNombreEdu()).get().getId() != id) {
             
-            return new ResponseEntity(new Mensaje("Esa experiencia ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Esa educación ya existe"), HttpStatus.BAD_REQUEST);
             
         }
         //el campo no puede estar vacio
-        if(StringUtils.isBlank(dtoExp.getNombreE())) {
+        if(StringUtils.isBlank(dtoEdu.getNombreEdu())) {
             
             return new ResponseEntity(new Mensaje("El campo no puede estar vacío"), HttpStatus.BAD_REQUEST);
             
         }
         
-        Experiencia experiencia = sExperiencia.getOne(id).get();
-        //busca el nombre y la experiencia que esta en el dto y lo setea a experiencia
-        experiencia.setNombreE(dtoExp.getNombreE());
-        experiencia.setDescripcionE(dtoExp.getDescripcionE());
+        Educacion educacion = sEducacion.getOne(id).get();
+        //busca el nombre y la descripcion que esta en el dto y lo setea a educacion
+        educacion.setNombreEdu(dtoEdu.getNombreEdu());
+        educacion.setDescripcionEdu(dtoEdu.getDescripcionEdu());
         
-        sExperiencia.save(experiencia);
-        return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
+        sEducacion.save(educacion);
+        return new ResponseEntity(new Mensaje("Educación actualizada"), HttpStatus.OK);
         
     }
     
     @DeleteMapping ("/delete/{id}")
     public ResponseEntity<?> delete (@PathVariable("id") int id) {
         
-        if(!sExperiencia.existsById(id)) {
+        if(!sEducacion.existsById(id)) {
             
             return new ResponseEntity(new Mensaje("El ID no Existe"), HttpStatus.NOT_FOUND);
             
         }
         
-        sExperiencia.delete(id);
+        sEducacion.delete(id);
         
-        return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Educación eliminada"), HttpStatus.OK);
         
     }
     
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Experiencia> getById(@PathVariable("id") int id){
+    public ResponseEntity<Educacion> getById(@PathVariable("id") int id){
         
-        if(!sExperiencia.existsById(id)) {
+        if(!sEducacion.existsById(id)) {
             
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         
         }
         
-        Experiencia experiencia = sExperiencia.getOne(id).get();
-        return new ResponseEntity(experiencia, HttpStatus.OK);
+        Educacion educacion = sEducacion.getOne(id).get();
+        return new ResponseEntity(educacion, HttpStatus.OK);
     
     }
     
