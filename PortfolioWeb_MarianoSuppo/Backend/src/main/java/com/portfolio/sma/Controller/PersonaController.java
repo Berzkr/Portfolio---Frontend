@@ -40,7 +40,7 @@ public class PersonaController {
     
     @PreAuthorize("hasRole('ADMIN')")  //esto me dice que para poder tener acceso a esto hay que estar logueado como admin
     @DeleteMapping ("/personas/borrar/{id}")
-    public String deletePersona(@PathVariable Long id) {
+    public String deletePersona(@PathVariable int id) {
         
         ipersonaService.deletePersona(id);
         return "La persona fue eliminada correctamente";
@@ -50,7 +50,7 @@ public class PersonaController {
     //URL:PUERTO/personas/editar/id?nombre=nuevoNombre&apellido=nuevoApellido&img=nuevoImg
     @PreAuthorize("hasRole('ADMIN')")  //esto me dice que para poder tener acceso a esto hay que estar logueado como admin
     @PutMapping ("/personas/editar/{id}")
-    public Persona editPersona(@PathVariable Long id,
+    public Persona editPersona(@PathVariable int id,
                                @RequestParam("nombre") String nuevoNombre,
                                @RequestParam("apellido") String nuevoApellido,
                                @RequestParam("img") String nuevoImg) {
@@ -71,7 +71,7 @@ public class PersonaController {
     @GetMapping ("/personas/traer/perfil")
     public Persona findPersona(){
         
-        return ipersonaService.findPersona(1L);
+        return ipersonaService.findPersona(1);
         
     }
     

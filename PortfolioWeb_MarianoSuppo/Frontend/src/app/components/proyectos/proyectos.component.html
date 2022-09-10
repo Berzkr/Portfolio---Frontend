@@ -1,35 +1,30 @@
 <div class="row">
     <h1>Proyectos Realizados</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/nuevoproy" *ngIf="isLogged">
+            Agregar Proyecto
+        </button>
+    </div>
     <div class="container">
-        <div class="proyecto">
+        <div class="proyecto" *ngFor="let Proyecto of proy">
             <div class="col-sm-12 col-md-7 col-lg-7 parte1">
-                <h1>Desarrolo de impresora 3D Cartesiana</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-                elit. Eligendi totam perferendis ipsa voluptates 
-                quia eaque culpa doloribus cum! Numquam, ipsum? 
-                Dolores maxime accusantium tenetur, aut cum fuga 
-                quod possimus suscipit?</p>
+                <h2>{{Proyecto.nombreP}}</h2>
+                <h3>{{Proyecto.fechaP}}</h3>
+                <p>{{Proyecto.descripcionP}}</p>
             </div>
             <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
-                <img src="../../../assets/Impresora-cartesiana.jpg" 
-                alt="Impresora Cartesiana"
+                <img src={{Proyecto.imagenP}} 
+                alt=`{{Proyecto.nombreP}}`
                 class="img-fluid img-proyecto">
+            </div>
+            <div *ngIf="isLogged">
+                <button class="btn btn-light" routerLink="/editproy/{{Proyecto.id}}"><i class="bi bi-pen-fill"></i>EDITAR</button>
+            </div>
+                
+            <div *ngIf="isLogged">
+                <button class="btn btn-danger" (click)="delete(Proyecto.id)"><i class="bi bi-trash2-fill"></i>BORRAR</button>
             </div>    
-        </div>
-        <div class="proyecto">
-            <div class="col-sm-12 col-md-7 col-lg-7 parte1">
-                <h1>Desarrolo de impresora 3D CoreXY</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing 
-                elit. Eligendi totam perferendis ipsa voluptates 
-                quia eaque culpa doloribus cum! Numquam, ipsum? 
-                Dolores maxime accusantium tenetur, aut cum fuga 
-                quod possimus suscipit?</p>
-            </div>
-            <div class="col-sm-12 col-md-3 col-lg-3 offset-md-1 offset-lg-1 parte2">
-                <img src="../../../assets/Impresora-corexy.jpg" 
-                alt="Impresora Cartesiana"
-                class="img-fluid img-proyecto">
-            </div> 
-        </div>
     </div>
 </div>
+
+
