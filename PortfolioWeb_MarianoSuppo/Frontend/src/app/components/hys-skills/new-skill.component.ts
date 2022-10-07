@@ -12,6 +12,7 @@ export class NewSkillComponent implements OnInit {
 
   nombreHyS: string;
   porcentajeHyS: number;
+  imagenHyS: string;
 
   constructor(private sSkill: SSkillService, private router: Router) { }
 
@@ -20,7 +21,7 @@ export class NewSkillComponent implements OnInit {
 
   onCreate(): void {
 
-    const skill = new Skill(this.nombreHyS, this.porcentajeHyS);
+    const skill = new Skill(this.nombreHyS, this.porcentajeHyS, this.imagenHyS);
     this.sSkill.save(skill).subscribe(
       data => {
         alert("Skill creada correctamente");

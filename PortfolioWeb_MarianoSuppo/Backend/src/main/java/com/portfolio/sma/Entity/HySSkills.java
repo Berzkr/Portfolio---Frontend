@@ -16,13 +16,15 @@ public class HySSkills {
     private int id;
     private String nombreHyS;  //una vez que aprenda agregaré las imágenes
     private int porcentajeHyS;
+    private String imagenHyS;
 
     public HySSkills() {
     }
 
-    public HySSkills(String nombreHyS, int porcentajeHyS) {
+    public HySSkills(String nombreHyS, int porcentajeHyS, String imagenHyS) {
         this.nombreHyS = nombreHyS;
         this.porcentajeHyS = porcentajeHyS;
+        this.imagenHyS = imagenHyS;
     }
    
 }

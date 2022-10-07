@@ -51,7 +51,7 @@ public class CHySSkills {
             return new ResponseEntity(new Mensaje("Esa Skill ya existe"), HttpStatus.BAD_REQUEST);
             
         }
-        HySSkills hySSkills = new HySSkills(dtoHyS.getNombreHyS(), dtoHyS.getPorcentajeHyS());
+        HySSkills hySSkills = new HySSkills(dtoHyS.getNombreHyS(), dtoHyS.getPorcentajeHyS(), dtoHyS.getImagenHyS());
         sHyS.save(hySSkills);
         
         return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
