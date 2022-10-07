@@ -12,6 +12,9 @@ export class NewEducacionComponent implements OnInit {
 
   nombreEdu: string = '';
   descripcionEdu: string = '';
+  fechaInicioEdu: string = '';
+  fechaFinEdu: string = '';
+  logoEdu: string = '';
 
   constructor(private sEducacion: SEducacionService, private router: Router) { }
 
@@ -20,7 +23,7 @@ export class NewEducacionComponent implements OnInit {
 
   onCreate(): void {
 
-    const edu = new Educacion(this.nombreEdu, this.descripcionEdu);
+    const edu = new Educacion(this.nombreEdu, this.descripcionEdu, this.fechaInicioEdu, this.fechaFinEdu, this.logoEdu);
     this.sEducacion.save(edu).subscribe(
       data => {
         alert("Educación añadida");

@@ -13,14 +13,21 @@ public class Educacion {
     private int id;
     private String nombreEdu;
     private String descripcionEdu;
+    private String fechaInicioEdu;
+    private String fechaFinEdu;
+    private String logoEdu;
+
 
     //constructores
     public Educacion() {
     }
 
-    public Educacion(String nombreEdu, String descripcionEdu) {
+    public Educacion(String nombreEdu, String descripcionEdu, String fechaInicioEdu, String fechaFinEdu, String logoEdu) {
         this.nombreEdu = nombreEdu;
         this.descripcionEdu = descripcionEdu;
+        this.fechaInicioEdu = fechaInicioEdu;
+        this.fechaFinEdu = fechaFinEdu;
+        this.logoEdu = logoEdu;
     }
 
     //getters and setters
@@ -47,5 +54,30 @@ public class Educacion {
     public void setDescripcionEdu(String descripcionEdu) {
         this.descripcionEdu = descripcionEdu;
     }
+
+    public String getFechaInicioEdu() {
+        return fechaInicioEdu;
+    }
+
+    public void setFechaInicioEdu(String fechaInicioEdu) {
+        this.fechaInicioEdu = fechaInicioEdu;
+    }
+
+    public String getFechaFinEdu() {
+        return fechaFinEdu;
+    }
+
+    public void setFechaFinEdu(String fechaFinEdu) {
+        this.fechaFinEdu = fechaFinEdu;
+    }
+
+    public String getLogoEdu() {
+        return logoEdu;
+    }
+
+    public void setLogoEdu(String logoEdu) {
+        this.logoEdu = logoEdu;
+    }
+       
        
 }

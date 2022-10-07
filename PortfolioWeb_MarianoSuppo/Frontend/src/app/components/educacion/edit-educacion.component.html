@@ -10,6 +10,18 @@
                     <label for="descripcionEdu">Descripción de sus estudios</label>
                     <input type="text" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="educ.descripcionEdu" required>
                 </div>
+                <div class="form-group">
+                    <label for="fechaInicioEdu">Fecha de Inicio de Estudios</label>
+                    <input type="text" class="form-control" id="fechaInicioEdu" name="fechaInicioEdu" [(ngModel)]="educ.fechaInicioEdu" required>
+                </div>
+                <div class="form-group">
+                    <label for="fechaFinEdu">Fecha de Finalización de Estudios</label>
+                    <input type="text" class="form-control" id="fechaFinEdu" name="fechaFinEdu" [(ngModel)]="educ.fechaFinEdu" required>
+                </div>
+                <div class="form-group">
+                    <label for="logoEdu">URL del logo de la Institución</label>
+                    <input type="text" class="form-control" id="logoEdu" name="logoEdu" [(ngModel)]="educ.logoEdu" required>
+                </div>
                 <button class="btn btn-primary">Actualizar Educación</button>
             </form>
         </div>
