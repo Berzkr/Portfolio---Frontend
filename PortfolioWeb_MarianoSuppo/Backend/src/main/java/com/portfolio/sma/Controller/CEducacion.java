@@ -79,9 +79,12 @@ public class CEducacion {
         }
         
         Educacion educacion = sEducacion.getOne(id).get();
-        //busca el nombre y la descripcion que esta en el dto y lo setea a educacion
+        //busca el nombre, la descripcion, fecha de inicio, fecha fin y logo que esta en el dto y lo setea a educacion
         educacion.setNombreEdu(dtoEdu.getNombreEdu());
         educacion.setDescripcionEdu(dtoEdu.getDescripcionEdu());
+        educacion.setFechaInicioEdu(dtoEdu.getFechaInicioEdu());
+        educacion.setFechaFinEdu(dtoEdu.getFechaFinEdu());
+        educacion.setLogoEdu(dtoEdu.getLogoEdu());
         
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educación actualizada"), HttpStatus.OK);

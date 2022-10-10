@@ -80,9 +80,10 @@ public class CHySSkills {
         }
         
         HySSkills hySSkills = sHyS.getOne(id).get();
-        //busca el nombre y el porcentaje que esta en el dto y lo setea a hySSkills
+        //busca el nombre, el porcentaje e imagen que esta en el dto y lo setea a hySSkills
         hySSkills.setNombreHyS(dtoHyS.getNombreHyS());
         hySSkills.setPorcentajeHyS(dtoHyS.getPorcentajeHyS());
+        hySSkills.setImagenHyS(dtoHyS.getImagenHyS());
         
         sHyS.save(hySSkills);
         return new ResponseEntity(new Mensaje("Skill actualizada"), HttpStatus.OK);

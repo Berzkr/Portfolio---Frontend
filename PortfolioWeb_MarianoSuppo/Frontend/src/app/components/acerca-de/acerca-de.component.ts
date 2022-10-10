@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Persona } from 'src/app/model/persona.model';
 import { SvPersonaService } from 'src/app/service/sv-persona.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -9,16 +10,36 @@ import { SvPersonaService } from 'src/app/service/sv-persona.service';
 })
 export class AcercaDeComponent implements OnInit {
 
-  persona: Persona = new Persona("","","");
+  persona: Persona = null;
 
-  constructor(public personaService: SvPersonaService) {
+  constructor(public personaService: SvPersonaService, private tokenService: TokenService) {
 
   }
 
+  isLogged = false;
+
   ngOnInit(): void {
 
-    this.personaService.getPersona().subscribe(data => {this.persona = data});
+    this.cargarPersona();
+    
+    if (this.tokenService.getToken()) {
+      
+      this.isLogged = true;
 
+    } else {
+
+      this.isLogged = false;
+
+    }
+  
+  }
+
+  cargarPersona() {
+    this.personaService.detail(1).subscribe(data =>
+        {
+          this.persona = data
+        }
+      )
   }
 
 }

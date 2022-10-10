@@ -80,9 +80,12 @@ public class CExperiencia {
         }
         
         Experiencia experiencia = sExperiencia.getOne(id).get();
-        //busca el nombre y la experiencia que esta en el dto y lo setea a experiencia
+        //busca el nombre, la descripcion, fecha de inicio, fecha fin y logo que esta en el dto y lo setea a experiencia
         experiencia.setNombreE(dtoExp.getNombreE());
         experiencia.setDescripcionE(dtoExp.getDescripcionE());
+        experiencia.setFechaInicioE(dtoExp.getFechaInicioE());
+        experiencia.setFechaFinE(dtoExp.getFechaFinE());
+        experiencia.setLogoE(dtoExp.getLogoE());
         
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
