@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
+import { ImageService } from 'src/app/service/image.service';
 import { SEducacionService } from 'src/app/service/s-educacion.service';
 
 @Component({
@@ -16,13 +17,15 @@ export class NewEducacionComponent implements OnInit {
   fechaFinEdu: string = '';
   logoEdu: string = '';
 
-  constructor(private sEducacion: SEducacionService, private router: Router) { }
+  constructor(private sEducacion: SEducacionService, 
+              private router: Router, 
+              public imageServiceLogo: ImageService) { }
 
   ngOnInit(): void {
   }
 
   onCreate(): void {
-
+    this.logoEdu = this.imageServiceLogo.url;
     const edu = new Educacion(this.nombreEdu, this.descripcionEdu, this.fechaInicioEdu, this.fechaFinEdu, this.logoEdu);
     this.sEducacion.save(edu).subscribe(
       data => {
@@ -33,6 +36,12 @@ export class NewEducacionComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+  }
+
+  uploadImage($event:any) {
+
+    const carpeta = "logoEdu"
+    this.imageServiceLogo.uploadImage($event, carpeta);
 
   }
 

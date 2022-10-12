@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto';
+import { ImageService } from 'src/app/service/image.service';
 import { SProyectoService } from 'src/app/service/s-proyecto.service';
 
 @Component({
@@ -15,13 +16,15 @@ export class NewProyectoComponent implements OnInit {
   imagenP: string = '';
   fechaP: string = '';
 
-  constructor(private sProyecto: SProyectoService, private router: Router) { }
+  constructor(private sProyecto: SProyectoService, 
+              private router: Router,
+              public imageServiceLogoP: ImageService) { }
 
   ngOnInit(): void {
   }
 
   onCreate(): void {
-
+    this.imagenP = this.imageServiceLogoP.url;
     const proy = new Proyecto(this.nombreP, this.descripcionP, this.imagenP, this.fechaP);
     this.sProyecto.save(proy).subscribe(
       data => {
@@ -32,6 +35,13 @@ export class NewProyectoComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+
+  }
+
+  uploadImage($event:any) {
+
+    const carpeta = "imagenProy"
+    this.imageServiceLogoP.uploadImage($event, carpeta);
 
   }
 

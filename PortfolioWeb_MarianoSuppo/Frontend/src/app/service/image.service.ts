@@ -10,24 +10,27 @@ export class ImageService {
 
   constructor(private storage: Storage) { }
 
-  public uploadImage($event: any, name:string) {
+  public uploadImage($event: any, carpeta:string) {
 
     const file = $event.target.files[0];
-    const imgRef = ref(this.storage, `imagen/` + name);
+    const imgRef = ref(this.storage, `imagen/${carpeta}/${file.name}`);
+    const name = file.name;
     uploadBytes(imgRef, file)
-    .then(response => {this.getImages()})
+    .then(response => {this.getImages(name, carpeta)})
     .catch(error => console.log(error));
 
   }
 
-  getImages() {
+  getImages(name:string, carpeta:string) {
 
-    const imagesRef = ref(this.storage, 'imagen');
+    const imagesRef = ref(this.storage, `imagen/${carpeta}/`);
     list(imagesRef)
     .then(async response => {
       for(let item of response.items){
-        this.url = await getDownloadURL(item);
-        console.log("la url es: " + this.url);
+        if (item.name == name) {
+          this.url = await getDownloadURL(item);
+          console.log("la url es: " + this.url);
+        }
       }
     })
     .catch(error => console.log(error));

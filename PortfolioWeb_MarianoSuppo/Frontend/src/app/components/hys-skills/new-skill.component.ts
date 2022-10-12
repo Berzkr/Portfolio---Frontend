@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill';
+import { ImageService } from 'src/app/service/image.service';
 import { SSkillService } from 'src/app/service/s-skill.service';
 
 @Component({
@@ -14,13 +15,16 @@ export class NewSkillComponent implements OnInit {
   porcentajeHyS: number;
   imagenHyS: string;
 
-  constructor(private sSkill: SSkillService, private router: Router) { }
+  constructor(private sSkill: SSkillService, 
+              private router: Router,
+              public imageServiceLogoS: ImageService) { }
 
   ngOnInit(): void {
   }
 
   onCreate(): void {
 
+    this.imagenHyS = this.imageServiceLogoS.url;
     const skill = new Skill(this.nombreHyS, this.porcentajeHyS, this.imagenHyS);
     this.sSkill.save(skill).subscribe(
       data => {
@@ -31,6 +35,13 @@ export class NewSkillComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+
+  }
+
+  uploadImage($event:any) {
+
+    const carpeta = "imagenSkill"
+    this.imageServiceLogoS.uploadImage($event, carpeta);
 
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia';
+import { ImageService } from 'src/app/service/image.service';
 import { SExperienciaService } from 'src/app/service/s-experiencia.service';
 
 @Component({
@@ -16,13 +17,15 @@ export class NewExperienciaComponent implements OnInit {
   fechaFinE: string = '';
   logoE: string = '';
 
-  constructor(private sExperiencia: SExperienciaService, private router: Router) { }
+  constructor(private sExperiencia: SExperienciaService, 
+              private router: Router,
+              public imageServiceLogoE: ImageService) { }
 
   ngOnInit(): void {
   }
 
   onCreate(): void {
-
+    this.logoE = this.imageServiceLogoE.url;
     const expe = new Experiencia(this.nombreE, this.descripcionE, this.fechaInicioE, this.fechaFinE, this.logoE);
     this.sExperiencia.save(expe).subscribe(
       data => {
@@ -33,6 +36,13 @@ export class NewExperienciaComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+
+  }
+
+  uploadImage($event:any) {
+
+    const carpeta = "logoExpe"
+    this.imageServiceLogoE.uploadImage($event, carpeta);
 
   }
 

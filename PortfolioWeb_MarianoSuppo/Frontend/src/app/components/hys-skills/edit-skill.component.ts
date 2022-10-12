@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill';
+import { ImageService } from 'src/app/service/image.service';
 import { SSkillService } from 'src/app/service/s-skill.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class EditSkillComponent implements OnInit {
 
   skill: Skill = null;
 
-  constructor(private sSkill: SSkillService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private sSkill: SSkillService, 
+              private activatedRoute: ActivatedRoute, 
+              private router: Router,
+              public imageServiceLogoS: ImageService) { }
 
   ngOnInit(): void {
     
@@ -31,6 +35,7 @@ export class EditSkillComponent implements OnInit {
   onUpdate() {
 
     const id = this.activatedRoute.snapshot.params['id'];
+    this.skill.imagenHyS = this.imageServiceLogoS.url;
     this.sSkill.update(id, this.skill).subscribe(
       data => {
         this.router.navigate(['']);
@@ -39,6 +44,13 @@ export class EditSkillComponent implements OnInit {
         this.router.navigate(['']);
       }
     );
+
+  }
+
+  uploadImage($event:any) {
+
+    const carpeta = "imagenSkill"
+    this.imageServiceLogoS.uploadImage($event, carpeta);
 
   }
 
