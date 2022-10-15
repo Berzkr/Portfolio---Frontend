@@ -50,7 +50,7 @@ public class CProyecto {
             return new ResponseEntity(new Mensaje("Ese proyecto ya existe"), HttpStatus.BAD_REQUEST);
             
         }
-        Proyecto proyecto = new Proyecto(dtoProy.getNombreP(), dtoProy.getDescripcionP(), dtoProy.getImagenP(), dtoProy.getFechaP());
+        Proyecto proyecto = new Proyecto(dtoProy.getNombreP(), dtoProy.getDescripcionP(), dtoProy.getImagenP(), dtoProy.getFechaP(), dtoProy.getLinkP());
         sProyecto.save(proyecto);
         
         return new ResponseEntity(new Mensaje("Proyecto agregado"), HttpStatus.OK);
@@ -79,11 +79,12 @@ public class CProyecto {
         }
         
         Proyecto proyecto = sProyecto.getOne(id).get();
-        //busca el nombre, la descripcion, la imagen y la fecha que esta en el dto y lo setea a proyecto
+        //busca el nombre, la descripcion, la imagen, la fecha y el link que esta en el dto y lo setea a proyecto
         proyecto.setNombreP(dtoProy.getNombreP());
         proyecto.setDescripcionP(dtoProy.getDescripcionP());
         proyecto.setImagenP(dtoProy.getImagenP());
         proyecto.setFechaP(dtoProy.getFechaP());
+        proyecto.setLinkP(dtoProy.getLinkP());
         
         sProyecto.save(proyecto);
         return new ResponseEntity(new Mensaje("Proyecto actualizado"), HttpStatus.OK);

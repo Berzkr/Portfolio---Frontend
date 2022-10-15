@@ -1,4 +1,20 @@
-<div class="row">
-    <app-logo-ap></app-logo-ap>
-    <app-banner></app-banner>
+<div class="row divppal">
+    <div class="row">
+        <div class="container">
+            <div class="logo">
+                <a href="https://argentinaprograma.inti.gob.ar/"><img src="../../../assets/APLogo.png" alt="Argentina Programa" id="logoAP"></a>
+            </div>
+            <div class="redes">
+                <a href="https://www.linkedin.com/in/mariano-suppo"><img class="logored" src="../../../assets/linkedin.png" alt="Linkedin"></a>
+                <a href="https://www.instagram.com/marianosuppo"><img class="logored" src="../../../assets/instagram.png" alt="Instagram"></a>
+                <a href="https://github.com/Berzkr"><img class="logored" src="../../../assets/github.png" alt="Github"></a>
+                <a href="https://www.facebook.com/mariano.suppo"><img class="logored" src="../../../assets/facebook.png" alt="Facebook"></a>
+                <button type="button" class="btn btn-outline-light" (click)="login()" *ngIf="!isLogged">INGRESO</button>
+                <button type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLogged">CERRAR SESION</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <img class="banner" src="../../../assets/banner.jpg" alt="Banner">
+    </div>
 </div>

@@ -35,7 +35,9 @@ export class EditExperienciaComponent implements OnInit {
   onUpdate(): void {
 
     const id = this.activatedRoute.snapshot.params['id'];
-    this.expLab.logoE = this.imageServiceLogoE.url;
+    if(this.imageServiceLogoE.url != "") {
+      this.expLab.logoE = this.imageServiceLogoE.url;
+    }
     this.sExperiencia.update(id, this.expLab).subscribe(
       data => {
         this.router.navigate(['']);

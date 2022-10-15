@@ -35,7 +35,9 @@ export class EditSkillComponent implements OnInit {
   onUpdate() {
 
     const id = this.activatedRoute.snapshot.params['id'];
-    this.skill.imagenHyS = this.imageServiceLogoS.url;
+    if(this.imageServiceLogoS.url != "") {
+      this.skill.imagenHyS = this.imageServiceLogoS.url;
+    }
     this.sSkill.update(id, this.skill).subscribe(
       data => {
         this.router.navigate(['']);

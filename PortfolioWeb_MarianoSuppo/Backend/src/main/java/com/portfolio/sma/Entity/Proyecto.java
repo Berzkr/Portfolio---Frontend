@@ -16,18 +16,20 @@ public class Proyecto {
     private String descripcionP;
     private String imagenP;
     private String fechaP;
+    private String linkP;
     
     //constructores
     public Proyecto() {
     }
 
-    public Proyecto(String nombreP, String descripcionP, String imagenP, String fechaP) {
+    public Proyecto(String nombreP, String descripcionP, String imagenP, String fechaP, String linkP) {
         this.nombreP = nombreP;
         this.descripcionP = descripcionP;
         this.imagenP = imagenP;
         this.fechaP = fechaP;
+        this.linkP = linkP;
     }
-    
+     
     //getters and setters
     public int getId() {
         return id;
@@ -68,6 +70,13 @@ public class Proyecto {
     public void setFechaP(String fechaP) {
         this.fechaP = fechaP;
     }
-    
-    
+
+    public String getLinkP() {
+        return linkP;
+    }
+
+    public void setLinkP(String linkP) {
+        this.linkP = linkP;
+    }
+        
 }

@@ -15,6 +15,10 @@
                     <input type="text" class="form-control" id="fechaP" name="fechaP" [(ngModel)]="proy.fechaP" required>
                 </div>
                 <div class="form-group">
+                    <label for="linkP">Link del proyecto</label>
+                    <input type="text" class="form-control" id="linkP" name="linkP" [(ngModel)]="proy.linkP" required>
+                </div>
+                <div class="form-group">
                     <label for="imagenP">Imagen Del Proyecto</label>
                     <input type="file" class="form-control" id="imagenP" name="imagenP" (ngModel)="proy.imagenP" 
                     (change)="uploadImage($event)"

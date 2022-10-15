@@ -1,3 +1,48 @@
-div { 
+.divppal { 
     background-color: #a1b5cb;
+}
+
+.banner { 
+    width: 100%;
+    height: 600px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.redes {
+    margin-right: 1em;
+}
+
+#logoAP {
+    width: 150px;
+}
+
+.logored { 
+    width: 50px;
+    
+}
+
+.btn {
+    border-width: medium;
+    margin-left: 0.5em;
+}
+
+/*-- Para la vista de celular --*/
+@media (max-width: 575px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .redes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .redes, .logored {
+        margin: 0.2em;
+    }
 }

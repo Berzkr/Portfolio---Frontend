@@ -12,18 +12,21 @@ public class DtoProyecto {
     private String imagenP;
     @NotBlank
     private String fechaP;
+    @NotBlank
+    private String linkP;
 
     //constructores
     public DtoProyecto() {
     }
 
-    public DtoProyecto(String nombreP, String descripcionP, String imagenP, String fechaP) {
+    public DtoProyecto(String nombreP, String descripcionP, String imagenP, String fechaP, String linkP) {
         this.nombreP = nombreP;
         this.descripcionP = descripcionP;
         this.imagenP = imagenP;
         this.fechaP = fechaP;
+        this.linkP = linkP;
     }
-    
+        
     //getters y setters
 
     public String getNombreP() {
@@ -57,7 +60,13 @@ public class DtoProyecto {
     public void setFechaP(String fechaP) {
         this.fechaP = fechaP;
     }
-    
-    
+
+    public String getLinkP() {
+        return linkP;
+    }
+
+    public void setLinkP(String linkP) {
+        this.linkP = linkP;
+    }
     
 }
