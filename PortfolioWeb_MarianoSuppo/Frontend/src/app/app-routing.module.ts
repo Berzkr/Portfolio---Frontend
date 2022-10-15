@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.component';
 import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
 import { NewEducacionComponent } from './components/educacion/new-educacion.component';
+import { Error404Component } from './components/error404/error404.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,7 +24,8 @@ const routes: Routes = [
   {path:'editproy/:id', component: EditProyectoComponent},
   {path:'newskill', component: NewSkillComponent},
   {path:'editskill/:id', component: EditSkillComponent},
-  {path:'editacercade/:id', component: EditAcercaDeComponent}
+  {path:'editacercade/:id', component: EditAcercaDeComponent},
+  {path:'**', component: Error404Component}
 ];
 
 @NgModule({

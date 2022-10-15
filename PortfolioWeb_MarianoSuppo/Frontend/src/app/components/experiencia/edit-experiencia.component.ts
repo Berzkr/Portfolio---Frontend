@@ -44,6 +44,7 @@ export class EditExperienciaComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+    this.imageServiceLogoE.clearUrl();
 
   }
 
@@ -51,6 +52,13 @@ export class EditExperienciaComponent implements OnInit {
 
     const carpeta = "logoExpe"
     this.imageServiceLogoE.uploadImage($event, carpeta);
+
+  }
+
+  cancel(): void {
+
+    this.imageServiceLogoE.clearUrl();
+    this.router.navigate(['']);
 
   }
 

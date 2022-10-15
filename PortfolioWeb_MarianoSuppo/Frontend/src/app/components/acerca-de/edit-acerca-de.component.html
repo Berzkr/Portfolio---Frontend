@@ -20,12 +20,18 @@
                     (change)="uploadImage($event)"
                     accept=".jpg, .jpeg, .png">
                 </div>
+                <br>
                 <div class="imagen">
-                    <img [src]="imageService.url" width="200px" alt="Imagen Perfil">
+                    <img [src]="persona.img" width="200px" alt="Imagen Perfil" *ngIf='imageService.url == ""'>
+                    <img [src]="imageService.url" width="200px" alt="Imagen Perfil" *ngIf='imageService.url != ""'>
                 </div>
                 <br>
-                <button class="btn btn-primary">Editar Persona</button>
+                <button class="btn btn-primary">Guardar</button>
             </form>
+            <br>
+            <div>
+                <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
+            </div>
         </div>
     </div>
 </div>

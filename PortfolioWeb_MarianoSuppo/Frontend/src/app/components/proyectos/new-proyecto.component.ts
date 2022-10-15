@@ -35,6 +35,7 @@ export class NewProyectoComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+    this.imageServiceLogoP.clearUrl();
 
   }
 
@@ -42,6 +43,13 @@ export class NewProyectoComponent implements OnInit {
 
     const carpeta = "imagenProy"
     this.imageServiceLogoP.uploadImage($event, carpeta);
+
+  }
+
+  cancel(): void {
+
+    this.imageServiceLogoP.clearUrl();
+    this.router.navigate(['']);
 
   }
 

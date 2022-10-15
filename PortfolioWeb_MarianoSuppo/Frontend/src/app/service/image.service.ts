@@ -37,4 +37,10 @@ export class ImageService {
 
   }
 
+  clearUrl() {
+
+    this.url = "";
+
+  }
+
 }

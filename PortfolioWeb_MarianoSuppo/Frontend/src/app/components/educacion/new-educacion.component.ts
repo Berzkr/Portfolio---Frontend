@@ -36,12 +36,20 @@ export class NewEducacionComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+    this.imageServiceLogo.clearUrl();
   }
 
   uploadImage($event:any) {
 
     const carpeta = "logoEdu"
     this.imageServiceLogo.uploadImage($event, carpeta);
+
+  }
+
+  cancel(): void {
+
+    this.imageServiceLogo.clearUrl();
+    this.router.navigate(['']);
 
   }
 

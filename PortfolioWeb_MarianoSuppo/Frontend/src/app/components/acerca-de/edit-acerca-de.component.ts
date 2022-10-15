@@ -41,12 +41,20 @@ export class EditAcercaDeComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+    this.imageService.clearUrl();
   }
 
   uploadImage($event:any) {
 
     const carpeta = "perfil";
     this.imageService.uploadImage($event, carpeta);
+
+  }
+
+  cancel(): void {
+
+    this.imageService.clearUrl();
+    this.router.navigate(['']);
 
   }
 

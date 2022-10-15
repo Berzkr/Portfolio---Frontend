@@ -44,6 +44,7 @@ export class EditEducacionComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+    this.imageServiceLogo.clearUrl();
 
   }
 
@@ -51,6 +52,13 @@ export class EditEducacionComponent implements OnInit {
 
     const carpeta = "logoEdu"
     this.imageServiceLogo.uploadImage($event, carpeta);
+
+  }
+
+  cancel(): void {
+
+    this.imageServiceLogo.clearUrl();
+    this.router.navigate(['']);
 
   }
 

@@ -44,6 +44,7 @@ export class EditProyectoComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+    this.imageServiceLogoP.clearUrl();
 
   }
 
@@ -53,4 +54,12 @@ export class EditProyectoComponent implements OnInit {
     this.imageServiceLogoP.uploadImage($event, carpeta);
 
   }
+
+  cancel(): void {
+
+    this.imageServiceLogoP.clearUrl();
+    this.router.navigate(['']);
+
+  }
+  
 }

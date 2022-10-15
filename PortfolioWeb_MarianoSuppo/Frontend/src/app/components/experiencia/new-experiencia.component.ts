@@ -36,6 +36,7 @@ export class NewExperienciaComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
+    this.imageServiceLogoE.clearUrl();
 
   }
 
@@ -43,6 +44,13 @@ export class NewExperienciaComponent implements OnInit {
 
     const carpeta = "logoExpe"
     this.imageServiceLogoE.uploadImage($event, carpeta);
+
+  }
+
+  cancel(): void {
+
+    this.imageServiceLogoE.clearUrl();
+    this.router.navigate(['']);
 
   }
 

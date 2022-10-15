@@ -44,6 +44,7 @@ export class EditSkillComponent implements OnInit {
         this.router.navigate(['']);
       }
     );
+    this.imageServiceLogoS.clearUrl();
 
   }
 
@@ -51,6 +52,13 @@ export class EditSkillComponent implements OnInit {
 
     const carpeta = "imagenSkill"
     this.imageServiceLogoS.uploadImage($event, carpeta);
+
+  }
+
+  cancel(): void {
+
+    this.imageServiceLogoS.clearUrl();
+    this.router.navigate(['']);
 
   }
 

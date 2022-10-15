@@ -55,4 +55,10 @@ export class LoginComponent implements OnInit {
 
   }
 
+  home(): void{
+
+    this.router.navigate(['']);
+
+  }
+
 }

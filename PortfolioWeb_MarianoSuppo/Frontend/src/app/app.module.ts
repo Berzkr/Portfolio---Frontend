@@ -30,6 +30,7 @@ import { EditAcercaDeComponent } from './components/acerca-de/edit-acerca-de.com
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { Error404Component } from './components/error404/error404.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     EditProyectoComponent,
     EditSkillComponent,
     NewSkillComponent,
-    EditAcercaDeComponent
+    EditAcercaDeComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
