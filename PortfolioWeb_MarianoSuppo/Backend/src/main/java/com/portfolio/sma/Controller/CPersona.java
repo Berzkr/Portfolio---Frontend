@@ -49,7 +49,16 @@ public class CPersona {
             return new ResponseEntity(new Mensaje("Esa persona ya existe"), HttpStatus.BAD_REQUEST);
             
         }
-        Persona persona = new Persona(dtoPerso.getNombre(), dtoPerso.getApellido(), dtoPerso.getAcercaDe(), dtoPerso.getImg());
+        Persona persona = new Persona(dtoPerso.getNombre(),
+                                      dtoPerso.getApellido(), 
+                                      dtoPerso.getAcercaDe(), 
+                                      dtoPerso.getImg(),
+                                      dtoPerso.getBanner(),
+                                      dtoPerso.getFace(),
+                                      dtoPerso.getInsta(),
+                                      dtoPerso.getTwit(),
+                                      dtoPerso.getLinked(),
+                                      dtoPerso.getGit());
         sPersona.save(persona);
         
         return new ResponseEntity(new Mensaje("Persona agregada"), HttpStatus.OK);
@@ -78,11 +87,17 @@ public class CPersona {
         }
         
         Persona persona = sPersona.getOne(id).get();
-        //busca el nombre, apellido, acercade e img que esta en el dto y lo setea a persona
+        //busca el nombre, apellido, acercade e img, redes sociales y banner que esta en el dto y lo setea a persona
         persona.setNombre(dtoPerso.getNombre());
         persona.setApellido(dtoPerso.getApellido());
         persona.setAcercaDe(dtoPerso.getAcercaDe());
         persona.setImg(dtoPerso.getImg());
+        persona.setBanner(dtoPerso.getBanner());
+        persona.setFace(dtoPerso.getFace());
+        persona.setInsta(dtoPerso.getInsta());
+        persona.setTwit(dtoPerso.getTwit());
+        persona.setLinked(dtoPerso.getLinked());
+        persona.setGit(dtoPerso.getGit());
         
         sPersona.save(persona);
         return new ResponseEntity(new Mensaje("Persona actualizada"), HttpStatus.OK);

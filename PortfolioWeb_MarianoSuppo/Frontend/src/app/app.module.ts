@@ -29,6 +29,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { Error404Component } from './components/error404/error404.component';
+import { EditHeaderComponent } from './components/header/edit-header.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { Error404Component } from './components/error404/error404.component';
     EditSkillComponent,
     NewSkillComponent,
     EditAcercaDeComponent,
-    Error404Component
+    Error404Component,
+    EditHeaderComponent
   ],
   imports: [
     BrowserModule,

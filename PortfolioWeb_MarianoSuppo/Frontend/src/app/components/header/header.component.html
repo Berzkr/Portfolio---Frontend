@@ -1,20 +1,31 @@
-<div class="row divppal">
+<div class="row divppal" *ngIf="persona">
     <div class="row">
         <div class="container">
             <div class="logo">
                 <a href="https://argentinaprograma.inti.gob.ar/"><img src="../../../assets/APLogo.png" alt="Argentina Programa" id="logoAP"></a>
             </div>
             <div class="redes">
-                <a href="https://www.linkedin.com/in/mariano-suppo"><img class="logored" src="../../../assets/linkedin.png" alt="Linkedin"></a>
-                <a href="https://www.instagram.com/marianosuppo"><img class="logored" src="../../../assets/instagram.png" alt="Instagram"></a>
-                <a href="https://github.com/Berzkr"><img class="logored" src="../../../assets/github.png" alt="Github"></a>
-                <a href="https://www.facebook.com/mariano.suppo"><img class="logored" src="../../../assets/facebook.png" alt="Facebook"></a>
+                <a href={{persona.linked}} *ngIf='persona.linked != ""'>
+                    <img class="logored" src="../../../assets/linkedin.png" alt="Linkedin"></a>
+                <a href={{persona.insta}} *ngIf='persona.insta != ""'>
+                    <img class="logored" src="../../../assets/instagram.png" alt="Instagram"></a>
+                <a href={{persona.git}} *ngIf='persona.git != ""'>
+                    <img class="logored" src="../../../assets/github.png" alt="Github"></a>
+                <a href={{persona.face}} *ngIf='persona.face != ""'>
+                    <img class="logored" src="../../../assets/facebook.png" alt="Facebook"></a>
+                <a href={{persona.twit}} *ngIf='persona.twit != ""'>
+                    <img class="logored" src="../../../assets/twitter.png" alt="Twitter"></a>
                 <button type="button" class="btn btn-outline-light" (click)="login()" *ngIf="!isLogged">INGRESO</button>
                 <button type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLogged">CERRAR SESION</button>
             </div>
         </div>
     </div>
     <div class="row">
-        <img class="banner" src="../../../assets/banner.jpg" alt="Banner">
+        <img class="img-fluid banner" src={{persona.banner}} alt="Banner">
+        <div>
+            <button type="button" class="btn btn-light" routerLink="/editheader/1" *ngIf="isLogged">
+                <i class="bi bi-pen-fill"></i>
+            </button>
+        </div>
     </div>
 </div>

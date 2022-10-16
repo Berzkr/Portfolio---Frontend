@@ -6,6 +6,7 @@ import { NewEducacionComponent } from './components/educacion/new-educacion.comp
 import { Error404Component } from './components/error404/error404.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
+import { EditHeaderComponent } from './components/header/edit-header.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditSkillComponent } from './components/hys-skills/edit-skill.component';
 import { NewSkillComponent } from './components/hys-skills/new-skill.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'newskill', component: NewSkillComponent},
   {path:'editskill/:id', component: EditSkillComponent},
   {path:'editacercade/:id', component: EditAcercaDeComponent},
+  {path:'editheader/:id', component: EditHeaderComponent},
   {path:'**', component: Error404Component}
 ];
 

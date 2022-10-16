@@ -1,7 +1,10 @@
 package com.portfolio.sma.Dto;
 
 import javax.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter @Getter
 public class DtoPersona {
     
     @NotBlank
@@ -12,49 +15,27 @@ public class DtoPersona {
     private String acercaDe;
     @NotBlank
     private String img;
+    private String banner;
+    private String face;
+    private String insta;
+    private String twit;
+    private String linked;
+    private String git;
 
     public DtoPersona() {
     }
 
-    public DtoPersona(String nombre, String apellido, String acercaDe, String img) {
+    public DtoPersona(String nombre, String apellido, String acercaDe, String img, String banner, String face, String insta, String twit, String linked, String git) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.acercaDe = acercaDe;
         this.img = img;
+        this.banner = banner;
+        this.face = face;
+        this.insta = insta;
+        this.twit = twit;
+        this.linked = linked;
+        this.git = git;
     }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getAcercaDe() {
-        return acercaDe;
-    }
-
-    public void setAcercaDe(String acercaDe) {
-        this.acercaDe = acercaDe;
-    }
-
-    public String getImg() {
-        return img;
-    }
-
-    public void setImg(String img) {
-        this.img = img;
-    }
-    
-    
     
 }
