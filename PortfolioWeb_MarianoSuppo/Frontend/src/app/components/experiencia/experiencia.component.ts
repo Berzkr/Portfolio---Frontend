@@ -40,18 +40,20 @@ export class ExperienciaComponent implements OnInit {
 
   delete(id?: number) {
 
-    if (id != undefined) {
-      
-      this.sExperiencia.delete(id).subscribe(
-        data => {
-          this.cargarExperiencia();
-        }, err => {
-          alert("No se pudo eliminar la experiencia");
-        }
-      )
-
+    const respuesta = confirm ("¿Estas seguro que deseas eliminar esta experiencia?");
+    
+    if (respuesta == true){
+      if (id != undefined) {
+        this.sExperiencia.delete(id).subscribe(
+          data => {
+            this.cargarExperiencia();
+          }, err => {
+            alert("No se pudo eliminar la experiencia");
+          }
+        )
+        alert("Experiencia Borrada");
+      }
     }
-
   }
 
 }

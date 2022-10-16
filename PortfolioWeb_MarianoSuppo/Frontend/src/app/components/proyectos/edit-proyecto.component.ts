@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto';
 import { ImageService } from 'src/app/service/image.service';
 import { SProyectoService } from 'src/app/service/s-proyecto.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-edit-proyecto',
@@ -16,11 +17,21 @@ export class EditProyectoComponent implements OnInit {
   constructor(private sProyecto: SProyectoService, 
               private activatedRoute: ActivatedRoute, 
               private router: Router,
-              public imageServiceLogoP: ImageService) { }
+              public imageServiceLogoP: ImageService,
+              private tokenService: TokenService) { }
+
+  isLogged = false;
 
   ngOnInit(): void {
 
     const id = this.activatedRoute.snapshot.params['id'];
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
     this.sProyecto.detail(id).subscribe(
       data => {
         this.proy = data;

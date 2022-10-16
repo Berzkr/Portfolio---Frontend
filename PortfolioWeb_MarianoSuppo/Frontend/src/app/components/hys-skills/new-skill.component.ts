@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill';
 import { ImageService } from 'src/app/service/image.service';
 import { SSkillService } from 'src/app/service/s-skill.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-new-skill',
@@ -17,9 +18,19 @@ export class NewSkillComponent implements OnInit {
 
   constructor(private sSkill: SSkillService, 
               private router: Router,
-              public imageServiceLogoS: ImageService) { }
+              public imageServiceLogoS: ImageService,
+              private tokenService: TokenService) { }
 
+  isLogged = false;
+  
   ngOnInit(): void {
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
   }
 
   onCreate(): void {

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Skill } from 'src/app/model/skill';
 import { ImageService } from 'src/app/service/image.service';
 import { SSkillService } from 'src/app/service/s-skill.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-edit-skill',
@@ -16,11 +17,21 @@ export class EditSkillComponent implements OnInit {
   constructor(private sSkill: SSkillService, 
               private activatedRoute: ActivatedRoute, 
               private router: Router,
-              public imageServiceLogoS: ImageService) { }
+              public imageServiceLogoS: ImageService,
+              private tokenService: TokenService) { }
+
+  isLogged = false;
 
   ngOnInit(): void {
     
     const id = this.activatedRoute.snapshot.params['id'];
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
     this.sSkill.detail(id).subscribe(
       data => {
         this.skill = data;

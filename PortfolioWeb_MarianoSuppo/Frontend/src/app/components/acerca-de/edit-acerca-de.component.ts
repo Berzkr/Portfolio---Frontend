@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from 'src/app/model/persona.model';
 import { ImageService } from 'src/app/service/image.service';
 import { SvPersonaService } from 'src/app/service/sv-persona.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-edit-acerca-de',
@@ -16,10 +17,20 @@ export class EditAcercaDeComponent implements OnInit {
   constructor(private sPersona: SvPersonaService, 
               private activatedRoute: ActivatedRoute, 
               private router: Router,
-              public imageService: ImageService) { }
+              public imageService: ImageService,
+              private tokenService: TokenService) { }
+              
+  isLogged = false;
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
+    
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
     this.sPersona.detail(id).subscribe(
       data => {
         this.persona = data;

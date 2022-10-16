@@ -39,19 +39,20 @@ export class EducacionComponent implements OnInit {
   }
 
   delete(id?: number) {
-
-    if (id != undefined) {
-      
-      this.sEducacion.delete(id).subscribe(
-        data => {
-          this.cargarEducacion();
-        }, err => {
-          alert("No se pudo eliminar la educación");
-        }
-      )
-
+    
+    const respuesta = confirm ("¿Estas seguro que deseas eliminar esta Educacíon?");
+    if (respuesta == true){
+      if (id != undefined) {
+        this.sEducacion.delete(id).subscribe(
+          data => {
+            this.cargarEducacion();
+          }, err => {
+            alert("No se pudo eliminar la educación");
+          }
+        )
+        alert("Educación Borrada");
+      }
     }
-
   }
 
 }

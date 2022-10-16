@@ -20,12 +20,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row banner-button">
         <img class="img-fluid banner" src={{persona.banner}} alt="Banner">
-        <div>
-            <button type="button" class="btn btn-light" routerLink="/editheader/1" *ngIf="isLogged">
-                <i class="bi bi-pen-fill"></i>
-            </button>
-        </div>
+        <button type="button" class="btn btn-light" routerLink="/editheader/1" *ngIf="isLogged">
+            <i class="bi bi-pen-fill"></i>
+        </button>
     </div>
 </div>

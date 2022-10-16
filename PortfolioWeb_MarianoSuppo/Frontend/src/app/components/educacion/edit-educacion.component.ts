@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Educacion } from 'src/app/model/educacion';
 import { ImageService } from 'src/app/service/image.service';
 import { SEducacionService } from 'src/app/service/s-educacion.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-edit-educacion',
@@ -16,11 +17,21 @@ export class EditEducacionComponent implements OnInit {
   constructor(private sEducacion: SEducacionService, 
               private activatedRoute: ActivatedRoute, 
               private router: Router, 
-              public imageServiceLogo: ImageService) { }
+              public imageServiceLogo: ImageService,
+              private tokenService: TokenService) { }
 
+  isLogged = false;
+  
   ngOnInit(): void {
     
     const id = this.activatedRoute.snapshot.params['id'];
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
     this.sEducacion.detail(id).subscribe(
       data => {
         this.educ = data;

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto';
 import { ImageService } from 'src/app/service/image.service';
 import { SProyectoService } from 'src/app/service/s-proyecto.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-new-proyecto',
@@ -19,9 +20,19 @@ export class NewProyectoComponent implements OnInit {
 
   constructor(private sProyecto: SProyectoService, 
               private router: Router,
-              public imageServiceLogoP: ImageService) { }
+              public imageServiceLogoP: ImageService,
+              private tokenService: TokenService) { }
+
+  isLogged = false;
 
   ngOnInit(): void {
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+
   }
 
   onCreate(): void {

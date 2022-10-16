@@ -26,10 +26,24 @@
     
 }
 
-.btn {
+.redes .btn {
     border-width: medium;
     margin-left: 0.5em;
 }
+
+.banner-button{
+    display:inline-block;
+    position:relative;
+}
+
+.banner-button button{
+    position: absolute;
+    top: 2em;
+    right:2em;
+    text-align: center;
+    width: 3em;
+    height: 3em;
+    }
 
 /*-- Para la vista de celular --*/
 @media (max-width: 575px) {

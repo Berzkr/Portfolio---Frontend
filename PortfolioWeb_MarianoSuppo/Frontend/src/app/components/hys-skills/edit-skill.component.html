@@ -1,5 +1,8 @@
 <div class="container" *ngIf="skill">
-    <div class="row">
+    <div *ngIf="isLogged == false">
+        <app-error404></app-error404>
+    </div>
+    <div class="row" *ngIf="isLogged == true">
         <div>
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
                 <div class="form-group">

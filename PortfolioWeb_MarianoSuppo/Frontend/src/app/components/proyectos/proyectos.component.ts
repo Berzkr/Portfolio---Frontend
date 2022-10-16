@@ -40,18 +40,19 @@ export class ProyectosComponent implements OnInit {
 
   delete(id?: number) {
 
-    if (id != undefined) {
-      
-      this.sProyecto.delete(id).subscribe(
-        data => {
-          this.cargarProyecto();
-        }, err => {
-          alert("No se pudo eliminar el proyecto");
-        }
-      )
-
+    const respuesta = confirm ("¿Estas seguro que deseas eliminar este Proyecto?");
+    if (respuesta == true){
+      if (id != undefined) {
+        this.sProyecto.delete(id).subscribe(
+          data => {
+            this.cargarProyecto();
+          }, err => {
+            alert("No se pudo eliminar el proyecto");
+          }
+        )
+        alert("Proyecto Borrado");
+      }
     }
-
   }
 
 }

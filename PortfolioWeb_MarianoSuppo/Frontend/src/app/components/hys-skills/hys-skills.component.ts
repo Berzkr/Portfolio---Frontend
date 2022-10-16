@@ -40,18 +40,19 @@ export class HysSkillsComponent implements OnInit {
 
   delete(id?: number) {
 
-    if (id != undefined) {
-      
-      this.sSkill.delete(id).subscribe(
-        data => {
-          this.cargarSkill();
-        }, err => {
-          alert("No se pudo eliminar Skill");
-        }
-      )
-
+    const respuesta = confirm ("¿Estas seguro que deseas eliminar esta Skill?");
+    if (respuesta == true){
+      if (id != undefined) {
+        this.sSkill.delete(id).subscribe(
+          data => {
+            this.cargarSkill();
+          }, err => {
+            alert("No se pudo eliminar Skill");
+          }
+        )
+        alert("Skill Borrada");
+      }
     }
-
   }
 
 }
