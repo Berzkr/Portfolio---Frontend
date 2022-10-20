@@ -1,47 +1,52 @@
-<div class="container" *ngIf="educ">
-    <div *ngIf="isLogged == false">
-        <app-error404></app-error404>
-    </div>
-    <div class="row" *ngIf="isLogged == true">
-        <div>
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nombreEdu">Nombre de la Institución</label>
-                    <input type="text" class="form-control" id="nombreEdu" name="nombreEdu" [(ngModel)]="educ.nombreEdu" required>
+<div class="row pagina">
+    <div class="margen">        
+        <div class="container" *ngIf="educ">
+            <div *ngIf="isLogged == false">
+                <app-error404></app-error404>
+            </div>
+            <div *ngIf="isLogged == true">
+                <div class="titulo">
+                    <h1>Editar Educación</h1>
                 </div>
-                <div class="form-group">
-                    <label for="descripcionEdu">Descripción de sus estudios</label>
-                    <input type="text" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="educ.descripcionEdu" required>
+                <div class="contenido">
+                    <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                        <div class="form-group">
+                            <label for="nombreEdu"><b>Nombre de la Institución</b></label>
+                            <input type="text" class="form-control" id="nombreEdu" name="nombreEdu" [(ngModel)]="educ.nombreEdu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcionEdu"><b>Descripción de sus estudios</b></label>
+                            <input type="text" class="form-control" id="descripcionEdu" name="descripcionEdu" [(ngModel)]="educ.descripcionEdu" required>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-6 col-lg-6 dateinit">
+                            <label for="fechaInicioEdu"><b>Fecha de Inicio de Estudios</b></label>
+                            <input type="text" class="form-control" id="fechaInicioEdu" name="fechaInicioEdu" [(ngModel)]="educ.fechaInicioEdu" required>
+                        </div>
+                        <div class="form-group col-sm-12 col-md-6 col-lg-6 dateend">
+                            <label for="fechaFinEdu"><b>Fecha de Finalización de Estudios</b></label>
+                            <input type="text" class="form-control" id="fechaFinEdu" name="fechaFinEdu" [(ngModel)]="educ.fechaFinEdu" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="logoEdu"><b>Logo de la Institución</b></label>
+                            <input type="file" class="form-control" id="logoEdu" name="logoEdu" (ngModel)="educ.logoEdu" 
+                            (change)="uploadImage($event)"
+                            accept=".jpg, .jpeg, .png">
+                        </div>
+                        <br>
+                        <div class="imagen">
+                            <img [src]="educ.logoEdu" width="200px" alt="Logo Institución" *ngIf='imageServiceLogo.url == ""'>
+                            <img [src]="imageServiceLogo.url" width="200px" alt="Logo Institucion" *ngIf='imageServiceLogo.url != ""'>
+                        </div>
+                        <br>
+                        <div class="boton">
+                            <button class="btn btn-dark">Guardar</button>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="boton">
+                        <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="fechaInicioEdu">Fecha de Inicio de Estudios</label>
-                    <input type="text" class="form-control" id="fechaInicioEdu" name="fechaInicioEdu" [(ngModel)]="educ.fechaInicioEdu" required>
-                </div>
-                <div class="form-group">
-                    <label for="fechaFinEdu">Fecha de Finalización de Estudios</label>
-                    <input type="text" class="form-control" id="fechaFinEdu" name="fechaFinEdu" [(ngModel)]="educ.fechaFinEdu" required>
-                </div>
-                <div class="form-group">
-                    <label for="logoEdu">Logo de la Institución</label>
-                    <input type="file" class="form-control" id="logoEdu" name="logoEdu" (ngModel)="educ.logoEdu" 
-                    (change)="uploadImage($event)"
-                    accept=".jpg, .jpeg, .png">
-                </div>
-                <br>
-                <div class="imagen">
-                    <img [src]="educ.logoEdu" width="200px" alt="Logo Institución" *ngIf='imageServiceLogo.url == ""'>
-                    <img [src]="imageServiceLogo.url" width="200px" alt="Logo Institucion" *ngIf='imageServiceLogo.url != ""'>
-                </div>
-                <!--<div class="form-group">
-                    <label for="logoEdu">URL del logo de la Institución</label>
-                    <input type="text" class="form-control" id="logoEdu" name="logoEdu" [(ngModel)]="educ.logoEdu" required>
-                </div>-->
-                <br>
-                <button class="btn btn-primary">Guardar</button>
-            </form>
-            <br>
-            <div>
-                <button class="btn btn-danger" (click)="cancel()">Cancelar</button>
             </div>
         </div>
     </div>

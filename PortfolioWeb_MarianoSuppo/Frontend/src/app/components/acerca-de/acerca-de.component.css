@@ -1,16 +1,25 @@
 .row {
     padding: 20px;
+    background-color: black;
+    color: #fff;
+    border-bottom-left-radius: 5em;
+    border-bottom-right-radius: 5em;
 }
 
 div {
     text-align: center;
 }
 
+.btneditpers {
+    text-align: center;
+    width: 3em;
+    height: 3em;
+}
+
 /*estilo de la foto de perfil*/
 @media (min-width: 576px) {
     #fotodeperfil {
-        border-radius: 100%;
-        box-shadow: 3px 3px 3px grey;
+        border-radius: 50%;
     }
 
     .acercade{
@@ -23,8 +32,7 @@ div {
     #fotodeperfil {
         position: absolute;
         width: 35%;
-        border-radius: 100%;
-        box-shadow: 3px 3px 3px grey;
+        border-radius: 50%;
         left: 33%;
         top: 950px;
     }

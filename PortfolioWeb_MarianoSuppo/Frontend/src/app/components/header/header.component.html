@@ -2,21 +2,25 @@
     <div class="row">
         <div class="container">
             <div class="logo">
-                <a href="https://argentinaprograma.inti.gob.ar/"><img src="../../../assets/APLogo.png" alt="Argentina Programa" id="logoAP"></a>
+                <a href="https://argentinaprograma.inti.gob.ar/" target="_blank"><img src="../../../assets/APLogo.png" alt="Argentina Programa" id="logoAP"></a>
             </div>
-            <div class="redes">
-                <a href={{persona.linked}} *ngIf='persona.linked != ""'>
-                    <img class="logored" src="../../../assets/linkedin.png" alt="Linkedin"></a>
-                <a href={{persona.insta}} *ngIf='persona.insta != ""'>
-                    <img class="logored" src="../../../assets/instagram.png" alt="Instagram"></a>
-                <a href={{persona.git}} *ngIf='persona.git != ""'>
-                    <img class="logored" src="../../../assets/github.png" alt="Github"></a>
-                <a href={{persona.face}} *ngIf='persona.face != ""'>
-                    <img class="logored" src="../../../assets/facebook.png" alt="Facebook"></a>
-                <a href={{persona.twit}} *ngIf='persona.twit != ""'>
-                    <img class="logored" src="../../../assets/twitter.png" alt="Twitter"></a>
-                <button type="button" class="btn btn-outline-light" (click)="login()" *ngIf="!isLogged">INGRESO</button>
-                <button type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLogged">CERRAR SESION</button>
+            <div class="sectorder">
+                <div class="redes">
+                    <a href={{persona.linked}} target="_blank" *ngIf='persona.linked != ""'>
+                        <img class="logored" src="../../../assets/linkedin.png" alt="Linkedin"></a>
+                    <a href={{persona.insta}} target="_blank" *ngIf='persona.insta != ""'>
+                        <img class="logored" src="../../../assets/instagram.png" alt="Instagram"></a>
+                    <a href={{persona.git}} target="_blank" *ngIf='persona.git != ""'>
+                        <img class="logored" src="../../../assets/github.png" alt="Github"></a>
+                    <a href={{persona.face}} target="_blank" *ngIf='persona.face != ""'>
+                        <img class="logored" src="../../../assets/facebook.png" alt="Facebook"></a>
+                    <a href={{persona.twit}} target="_blank" *ngIf='persona.twit != ""'>
+                        <img class="logored" src="../../../assets/twitter.png" alt="Twitter"></a>
+                </div>
+                <div class="butlog">
+                    <button type="button" class="btn btn-outline-light" (click)="login()" *ngIf="!isLogged">INGRESO</button>
+                    <button type="button" class="btn btn-outline-light" (click)="onLogOut()" *ngIf="isLogged">CERRAR SESION</button>
+                </div>
             </div>
         </div>
     </div>

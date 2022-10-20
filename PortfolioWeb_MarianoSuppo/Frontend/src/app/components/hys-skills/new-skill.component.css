@@ -1,0 +1,60 @@
+.pagina {
+    background-color: rgb(255, 123, 0);
+    margin: 0px;
+    min-height: 100%;
+}
+
+.margen {
+    padding: 2em;
+}
+
+.dateinit, .dateend { 
+    display: inline-block;
+}
+
+.form-group {
+    padding: 10px;
+}
+
+label {
+    padding-bottom: 0.5em;
+    
+}
+
+.contenido {
+    padding: 30px;
+    background-color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow:  5px 5px 5px black;
+}
+
+h1 {
+    display: inline-block;
+    background-color: black;
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 0;
+}
+
+.titulo {
+    padding: 0;
+    margin: 0;
+}
+
+@media (max-width: 575px) {
+    .dateinit, .dateend { 
+        display: block;
+    }
+}
+
+.boton {
+    text-align: center;
+}
+
+.imagen {
+    text-align: center;
+}

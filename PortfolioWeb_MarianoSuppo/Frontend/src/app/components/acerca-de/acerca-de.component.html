@@ -1,4 +1,4 @@
-<div class="row general" *ngIf="persona">
+<div class="row" *ngIf="persona">
     <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
         <img src={{persona.img}} 
         alt="Foto de perfil" 
@@ -10,14 +10,13 @@
         <p>Full Stack Developer Jr.</p>
     </div>
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 acercade">
+        <button type="button" class="btn btn-light btneditpers" routerLink="/editacercade/1" *ngIf="isLogged">
+            <i class="bi bi-pen-fill"></i>
+        </button>
         <span>
             <h1>Acerca de mí</h1>
             <p>{{persona.acercaDe}}</p>
         </span>
     </div>
-    <div>
-        <button type="button" class="btn btn-primary btneditpers" routerLink="/editacercade/1" *ngIf="isLogged">
-            Editar Persona
-        </button>
-    </div>
+    
 </div>

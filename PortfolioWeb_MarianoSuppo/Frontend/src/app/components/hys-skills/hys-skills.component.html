@@ -1,46 +1,53 @@
-<div class="row">
-    
-    <h1>Hard & Soft Skills</h1>
-
-    <div class="col-lg-2">
-        <button type="button" class="btn btn-dark" routerLink="/newskill" *ngIf="isLogged">
-            Nueva Skill
-        </button>
+<div class="row hysskill">
+    <div class="titulo">
+        <h1>Hard & Soft Skills</h1>
     </div>
 
-    <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let sk of skill">
-        <circle-progress
-            [percent]="(sk.porcentajeHyS)"
-            [radius]="100"
-            [imageSrc]="(sk.imagenHyS)"
-            [imageHeight]="75"
-            [imageWidth]="75"
-            [showImage]="true"
-            [title]="(sk.nombreHyS)"
-            [titleColor]="'black'"
-            [titleFontSize]="'2em'"
-            [showTitle]="true"
-            [showUnits]="false"
-            [showSubtitle]="false"
-            [outerStrokeWidth]="16"
-            [innerStrokeWidth]="8"
-            [outerStrokeColor]="'orange'"
-            [innerStrokeColor]="'black'"
-            [animation]="true"
-            [animationDuration]="500"
-        ></circle-progress>
-        
-        <div>
-            <td *ngIf="isLogged">
-                <button class="btn btn-light" routerLink="/editskill/{{sk.id}}">
-                    <i class="bi bi-pen-fill"></i>
-                </button>
-            </td>
-            <td *ngIf="isLogged">
-                <button class="btn btn-danger" (click)="delete(sk.id)">
-                    <i class="bi bi-trash2-fill"></i>
-                </button>
-            </td>
+    <div class="contenido">
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-dark" routerLink="/newskill" *ngIf="isLogged">
+                Agregar Skill
+            </button>
+        </div>
+        <div class="row">
+            <div class="text-center col-sm-12 col-md-6 col-lg-4 circulo" *ngFor="let sk of skill">
+                <div>
+                    <h4><b>{{sk.nombreHyS}}</b></h4>
+                </div>
+                <circle-progress
+                    [percent]="(sk.porcentajeHyS)"
+                    [radius]="100"
+                    [imageSrc]="(sk.imagenHyS)"
+                    [imageHeight]="75"
+                    [imageWidth]="75"
+                    [showImage]="true"
+                    [responsive]="true"
+                    [titleColor]="'black'"
+                    [titleFontSize]="'2em'"
+                    [showTitle]="false"
+                    [showUnits]="false"
+                    [showSubtitle]="false"
+                    [outerStrokeWidth]="16"
+                    [innerStrokeWidth]="8"
+                    [outerStrokeColor]="'orange'"
+                    [innerStrokeColor]="'black'"
+                    [animation]="true"
+                    [animationDuration]="500"
+                ></circle-progress>
+                
+                <div>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-dark btnedit" routerLink="/editskill/{{sk.id}}">
+                            <i class="bi bi-pen-fill"></i>
+                        </button>
+                    </td>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-danger btndel" (click)="delete(sk.id)">
+                            <i class="bi bi-trash2-fill"></i>
+                        </button>
+                    </td>
+                </div>
+            </div>
         </div>
     </div>
 </div>
