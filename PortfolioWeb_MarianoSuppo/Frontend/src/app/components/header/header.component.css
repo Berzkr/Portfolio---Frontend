@@ -1,5 +1,10 @@
+.row {
+    margin: 0%;
+}
+
 .divppal { 
     background-color: #000;
+    position:relative;
 }
 
 .banner { 
@@ -23,7 +28,6 @@
 
 .logored { 
     width: 50px;
-    
 }
 
 .redes .btn {
@@ -40,12 +44,14 @@
 .banner-button{
     display:inline-block;
     position:relative;
+    margin: 0%;
+    padding: 0px;
 }
 
 .banner-button button{
     position: absolute;
-    top: 2em;
-    right:2em;
+    top: 1.5em;
+    right:1.5em;
     text-align: center;
     width: 3em;
     height: 3em;
@@ -71,6 +77,7 @@
     }
     .butlog {
         margin-top: 1em;
+        margin-bottom: 0.5em;
     }
 
 }

@@ -33,14 +33,10 @@ h1 {
 
 
 
-.btnedit {
+.btnedit, .btndel {
     height: 3em;
     width: 3em;
-}
-
-.btndel {
-    height: 3em;
-    width: 3em;
+    margin: 0.5em;
 }
 
 .container {
