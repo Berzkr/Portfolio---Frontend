@@ -5,7 +5,7 @@ export class Proyecto {
     descripcionP: string;
     imagenP: string;
     fechaP: string;
-    linkP: string;
+    linkP: string = "";
     
     constructor (nombreP: string, descripcionP: string, imagenP: string, fechaP: string, linkP: string) {
 

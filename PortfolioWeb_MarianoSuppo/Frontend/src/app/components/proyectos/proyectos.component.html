@@ -18,7 +18,11 @@
                     <br>
                     <p>{{Proyecto.descripcionP}}</p>
                     <br>
-                    <a href={{Proyecto.linkP}} target="_blank"><button class="btn btn-dark">Link Proyecto</button></a>
+                    <div *ngIf='Proyecto.linkP != ""'>
+                        <a href={{Proyecto.linkP}} target="_blank">
+                            <button class="btn btn-dark">Link Proyecto</button>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-4 offset-md-1 offset-lg-1 parte2">
                     <img src={{Proyecto.imagenP}} 

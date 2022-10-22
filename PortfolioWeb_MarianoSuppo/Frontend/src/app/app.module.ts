@@ -30,6 +30,8 @@ import { environment } from '../environments/environment';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { Error404Component } from './components/error404/error404.component';
 import { EditHeaderComponent } from './components/header/edit-header.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { EditHeaderComponent } from './components/header/edit-header.component';
     NewSkillComponent,
     EditAcercaDeComponent,
     Error404Component,
-    EditHeaderComponent
+    EditHeaderComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import { EditHeaderComponent } from './components/header/edit-header.component';
     NgCircleProgressModule.forRoot({}),
     HttpClientModule,
     FormsModule,
+    RouterModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideStorage(() => getStorage())
   ],

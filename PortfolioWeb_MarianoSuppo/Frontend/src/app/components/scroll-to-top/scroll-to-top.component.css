@@ -1,0 +1,11 @@
+.btn{
+    width: 3em;
+    height: 3em;
+    border: 1px solid white;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 2.5em;
+    right: 2.5em;
+}  
