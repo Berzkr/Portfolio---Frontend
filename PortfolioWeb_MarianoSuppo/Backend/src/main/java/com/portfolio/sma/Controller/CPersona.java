@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/personas")
 //cross origin es para aceptar los llamados que le voy a hacer desde la url del frontend
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin (origins = "https://frontendmas-4014a.web.app")
 public class CPersona {
     
     @Autowired

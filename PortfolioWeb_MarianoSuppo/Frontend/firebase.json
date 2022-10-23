@@ -1,1 +1,16 @@
-{}
+{
+  "hosting": {
+    "public": "dist/portfolio-web-mariano-suppo",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

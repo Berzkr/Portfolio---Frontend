@@ -10,5 +10,6 @@ export const environment = {
     measurementId: 'G-JT55YBYMK3',
   },
   production: true,
-  //URL: 'https://heroku...'
+
+  URL: 'https://backendmas.herokuapp.com/'
 };
