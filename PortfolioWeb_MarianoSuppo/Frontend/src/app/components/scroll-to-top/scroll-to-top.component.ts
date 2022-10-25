@@ -16,8 +16,10 @@ export class ScrollToTopComponent implements OnInit {
       
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
+    /*posicion del scroll
     console.log('[scroll]', scrollPosition);
-    
+    */
+
     if (scrollPosition >= this.topPosToStartShowing) {
       this.isShow = true;
     } else {

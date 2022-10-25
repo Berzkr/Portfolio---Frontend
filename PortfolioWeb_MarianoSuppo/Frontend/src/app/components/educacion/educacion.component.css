@@ -59,3 +59,24 @@ h1 {
     padding: 2em;
     border-radius: 20px;
 }
+
+@media (max-width: 575px) {
+    .educacion {
+        margin-left: 0em;
+        margin-right: 0em;
+        padding: 0em;
+        text-align: center;
+    }
+    .contenido {
+        padding: 0em;
+        text-align: center;
+
+    }
+    .newedu {
+        margin-top: 1em;
+    }
+
+    .parte {
+        display: block;
+    }
+}

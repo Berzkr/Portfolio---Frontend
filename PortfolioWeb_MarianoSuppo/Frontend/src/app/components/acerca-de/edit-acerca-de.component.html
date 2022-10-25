@@ -20,8 +20,11 @@
                         </div>
                         <div class="form-group">
                             <label for="acercaDe"><b>Acerca de mí</b></label>
-                            <input type="text" class="form-control" id="acercaDe" name="acercaDe" [(ngModel)]="persona.acercaDe" required>
-                        </div>
+                            <textarea type="text" class="form-control" id="acercaDe" name="acercaDe" [(ngModel)]="persona.acercaDe" required></textarea>
+                            <!--
+                                <input type="text" class="form-control" id="acercaDe" name="acercaDe" [(ngModel)]="persona.acercaDe" required>
+                            -->
+                            </div>
                         <div class="form-group">
                             <label for="img"><b>Imagen</b></label>
                             <input type="file" class="form-control" id="img" name="img" (ngModel)="persona.img" 

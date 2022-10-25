@@ -10,7 +10,7 @@
                 <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                 <p class="text-white-50 mb-5">Por favor, ingrese Usuario y Contraseña!</p>
 
-                <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+                <form #login="ngForm" (ngSubmit)="onLogin(login)" novalidate>
   
                   <div class="form-outline form-white mb-4">
                     <input type="email" id="nombreUsuario" name="nombreUsuario" class="form-control form-control-lg" [(ngModel)]="nombreUsuario" required/>
@@ -28,8 +28,9 @@
 
                 </form>
                 <br>
-                <button class="btn btn-danger btn-lg px-5" (click)="home()">Cancelar</button>
-                    
+                <div class="divbtn">
+                  <button class="btn btn-danger btn-lg px-5" (click)="home()">Cancelar</button>
+                </div>    
               </div>
   
               <!--<div>

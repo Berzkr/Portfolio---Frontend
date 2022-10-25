@@ -5,7 +5,7 @@
 
     <div class="contenido">
         <div class="col-lg-2">
-            <button type="button" class="btn btn-dark" routerLink="/nuevoproy" *ngIf="isLogged">
+            <button type="button" class="btn btn-dark newproy" routerLink="/nuevoproy" *ngIf="isLogged">
                 Agregar Proyecto
             </button>
         </div>
@@ -29,7 +29,7 @@
                     alt=`{{Proyecto.nombreP}}`
                     class="img-fluid img-proyecto">
                 </div>
-                <div *ngIf="isLogged">
+                <div *ngIf="isLogged" class="divbtn">
                     <button class="btn btn-dark btnedit" routerLink="/editproy/{{Proyecto.id}}"><i class="bi bi-pen-fill"></i></button>
                     <button class="btn btn-danger btndel" (click)="delete(Proyecto.id)"><i class="bi bi-trash2-fill"></i></button>
                 </div> 

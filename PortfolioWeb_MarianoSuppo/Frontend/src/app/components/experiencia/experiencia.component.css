@@ -51,13 +51,33 @@ h2 {
     padding: 1em;
 }
 
-.img-educacion {
+.img-experiencia {
     background-color: black;
 }
 
-.educacion {
+.experiencia {
     background-color: rgb(243, 230, 179);
     margin: 2em;
     padding: 2em;
     border-radius: 20px;
+}
+
+@media (max-width: 575px) {
+    .experiencia {
+        margin-left: 0em;
+        margin-right: 0em;
+        padding: 0em;
+        text-align: center;
+    }
+    .contenido {
+        padding: 0em;
+        text-align: center;
+    }
+    .newexpe {
+        margin-top: 1em;
+    }
+
+    .parte {
+        display: block;
+    }
 }

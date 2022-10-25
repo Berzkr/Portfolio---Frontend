@@ -5,17 +5,17 @@
     
     <div class="contenido">
         <div class="col-lg-2">
-            <button type="button" class="btn btn-dark newskill" routerLink="/nuevaexp" *ngIf="isLogged">
+            <button type="button" class="btn btn-dark newexpe" routerLink="/nuevaexp" *ngIf="isLogged">
                 Agregar experiencia
             </button>
         </div>
 
         <div class="container">
-            <div class="educacion" *ngFor="let Experiencia of expe">
+            <div class="experiencia" *ngFor="let Experiencia of expe">
                 <div class="col-sm-12 col-md-2 col-lg-2 parte">
                     <img src={{Experiencia.logoE}} 
                     alt=`{{Experiencia.nombreE}}`
-                    class="img-fluid img-educacion">
+                    class="img-fluid img-experiencia">
                     <br>
                 </div>
                 <div class="col-sm-12 col-md-4 col-lg-3 parte">

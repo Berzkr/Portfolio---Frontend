@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
@@ -33,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLogin(): void {
+  onLogin(login:NgForm): void {
 
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password); 
     this.authService.login(this.loginUsuario).subscribe(
@@ -50,6 +51,10 @@ export class LoginComponent implements OnInit {
         this.isLogginFail = true;
         this.errMsj = err.error.mensaje;
         console.log(this.errMsj);
+        //se usa para limpiar los campos del formulario en caso de equivocarnos de usuario o contraseña
+        login.reset();
+        alert ("Error al iniciar sesión, verifique usuario y/o contraseña");
+
       }      
     )
 
