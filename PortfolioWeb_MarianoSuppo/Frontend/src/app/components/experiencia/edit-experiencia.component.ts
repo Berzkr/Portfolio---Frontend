@@ -31,6 +31,8 @@ export class EditExperienciaComponent implements OnInit {
     } else {
       this.isLogged = false;
     }
+
+    this.imageServiceLogoE.clearUrl();
     
     this.sExperiencia.detail(id).subscribe(
       data => {
@@ -57,7 +59,6 @@ export class EditExperienciaComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageServiceLogoE.clearUrl();
 
   }
 
@@ -68,11 +69,5 @@ export class EditExperienciaComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageServiceLogoE.clearUrl();
-    this.router.navigate(['']);
-
-  }
 
 }

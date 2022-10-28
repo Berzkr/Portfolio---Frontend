@@ -32,6 +32,8 @@ export class EditProyectoComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageServiceLogoP.clearUrl();
+
     this.sProyecto.detail(id).subscribe(
       data => {
         this.proy = data;
@@ -57,7 +59,6 @@ export class EditProyectoComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageServiceLogoP.clearUrl();
 
   }
 
@@ -68,11 +69,5 @@ export class EditProyectoComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageServiceLogoP.clearUrl();
-    this.router.navigate(['']);
-
-  }
-  
+    
 }

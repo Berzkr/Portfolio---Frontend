@@ -33,6 +33,8 @@ export class NewExperienciaComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageServiceLogoE.clearUrl();
+
   }
 
   onCreate(): void {
@@ -47,7 +49,6 @@ export class NewExperienciaComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageServiceLogoE.clearUrl();
 
   }
 
@@ -58,11 +59,5 @@ export class NewExperienciaComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageServiceLogoE.clearUrl();
-    this.router.navigate(['']);
-
-  }
-
+ 
 }

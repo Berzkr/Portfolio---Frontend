@@ -31,6 +31,8 @@ export class NewSkillComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageServiceLogoS.clearUrl();
+
   }
 
   onCreate(): void {
@@ -46,7 +48,6 @@ export class NewSkillComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageServiceLogoS.clearUrl();
 
   }
 
@@ -57,11 +58,5 @@ export class NewSkillComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageServiceLogoS.clearUrl();
-    this.router.navigate(['']);
-
-  }
-
+  
 }

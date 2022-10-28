@@ -33,6 +33,8 @@ export class NewEducacionComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageServiceLogo.clearUrl();
+
   }
 
   onCreate(): void {
@@ -47,7 +49,6 @@ export class NewEducacionComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageServiceLogo.clearUrl();
   }
 
   uploadImage($event:any) {
@@ -57,11 +58,5 @@ export class NewEducacionComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageServiceLogo.clearUrl();
-    this.router.navigate(['']);
-
-  }
 
 }

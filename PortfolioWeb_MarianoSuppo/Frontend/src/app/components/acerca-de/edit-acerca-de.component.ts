@@ -31,6 +31,8 @@ export class EditAcercaDeComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageService.clearUrl();
+
     this.sPersona.detail(id).subscribe(
       data => {
         this.persona = data;
@@ -54,7 +56,6 @@ export class EditAcercaDeComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageService.clearUrl();
   }
 
   uploadImage($event:any) {
@@ -64,11 +65,5 @@ export class EditAcercaDeComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageService.clearUrl();
-    this.router.navigate(['']);
-
-  }
 
 }

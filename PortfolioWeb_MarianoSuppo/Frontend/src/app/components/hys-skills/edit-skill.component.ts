@@ -32,6 +32,8 @@ export class EditSkillComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageServiceLogoS.clearUrl();
+
     this.sSkill.detail(id).subscribe(
       data => {
         this.skill = data;
@@ -57,7 +59,6 @@ export class EditSkillComponent implements OnInit {
         this.router.navigate(['']);
       }
     );
-    this.imageServiceLogoS.clearUrl();
 
   }
 
@@ -68,11 +69,5 @@ export class EditSkillComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageServiceLogoS.clearUrl();
-    this.router.navigate(['']);
-
-  }
 
 }

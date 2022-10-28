@@ -32,6 +32,8 @@ export class EditEducacionComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageServiceLogo.clearUrl();
+
     this.sEducacion.detail(id).subscribe(
       data => {
         this.educ = data;
@@ -57,21 +59,13 @@ export class EditEducacionComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageServiceLogo.clearUrl();
-
+   
   }
 
   uploadImage($event:any) {
 
     const carpeta = "logoEdu"
     this.imageServiceLogo.uploadImage($event, carpeta);
-
-  }
-
-  cancel(): void {
-
-    this.imageServiceLogo.clearUrl();
-    this.router.navigate(['']);
 
   }
 

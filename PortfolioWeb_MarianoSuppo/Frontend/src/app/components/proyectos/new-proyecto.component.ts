@@ -33,6 +33,8 @@ export class NewProyectoComponent implements OnInit {
       this.isLogged = false;
     }
 
+    this.imageServiceLogoP.clearUrl();
+
   }
 
   onCreate(): void {
@@ -47,7 +49,6 @@ export class NewProyectoComponent implements OnInit {
         this.router.navigate(['']);
       }
     )
-    this.imageServiceLogoP.clearUrl();
 
   }
 
@@ -58,11 +59,5 @@ export class NewProyectoComponent implements OnInit {
 
   }
 
-  cancel(): void {
-
-    this.imageServiceLogoP.clearUrl();
-    this.router.navigate(['']);
-
-  }
-
+ 
 }
