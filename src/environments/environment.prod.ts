@@ -11,5 +11,5 @@ export const environment = {
   },
   production: true,
 
-  URL: 'https://backendmas.herokuapp.com/'
+  URL: 'https://masbackend.onrender.com/'
 };
